@@ -11,9 +11,15 @@ def GetArgs():
 
 args = GetArgs()
 
+if len(args) < 4:
+    print("You have to add arguments!")
+    print("For further information read README.md")
+    exit()
+
 current_names = args[1]
 all_names = args[2]
 language = args[3]
+
 
 
 def GetAllNames(file_path):
