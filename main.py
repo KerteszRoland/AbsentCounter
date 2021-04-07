@@ -1,6 +1,19 @@
 import cv2
 import pytesseract as tess
-tess.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+import sys
+
+
+def GetArgs():
+    args = list()
+    for i, arg in enumerate(sys.argv):
+        args.append(str(arg))
+    return args
+
+args = GetArgs()
+
+current_names = args[1]
+all_names = args[2]
+language = args[3]
 
 
 def GetAllNames(file_path):
@@ -49,4 +62,4 @@ def PrintAbsentNames(img_path, classmates_path, language):
         print(name)
 
         
-PrintAbsentNames("list.PNG", "classmates.txt", "hun")
+PrintAbsentNames(current_names, all_names, language)
